@@ -13,7 +13,7 @@ const BilleM2: React.FC = () => {
         return;
     }
     
-    const ctx = context; // Utilisation d'une variable locale pour le contexte
+    const ctx = context; // Utilisation d'une variable locale pour le contexte.
 
      // Initialisation des dimensions du canvas
      canvas.width = window.innerWidth;
@@ -21,10 +21,11 @@ const BilleM2: React.FC = () => {
 
      const colors = ["rgb(81, 162, 233)", "rgb(255, 77, 90)"];
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
+     const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
      const CONNECTION_DISTANCE = 100; // Distance entre les points connectés
      const DOTS_COUNT = 100; // Nombre de points
-     const LINE_OPACITY = 0.3; // Augmenter la visibilité des lignes
+     const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1; // Épaissir les lignes
      
      function createDot(canvasWidth: number, canvasHeight: number, colors: string[]) {
@@ -94,6 +95,11 @@ const BilleM2: React.FC = () => {
         }
       }
 
+    canvas.addEventListener("mousemove", (event) => {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    });
+
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -105,7 +111,7 @@ const BilleM2: React.FC = () => {
     animate();
   }, []);
 
-  return <canvas ref={canvasRef} className="bille-canvasM5" />;
+  return <canvas ref={canvasRef} className="bille-canvasM3" />;
 };
 
 export default BilleM2;
