@@ -13,7 +13,7 @@ const BilleM2: React.FC = () => {
         return;
     }
     
-    const ctx = context; // Utilisation d'une variable locale pour le contexte
+    const ctx = context; // Utilisation d'une variable locale pour le contexte.
 
      // Initialisation des dimensions du canvas
      canvas.width = window.innerWidth;
