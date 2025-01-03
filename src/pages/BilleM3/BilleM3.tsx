@@ -65,7 +65,7 @@ window.addEventListener("resize", handleResize);
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
      const CONNECTION_DISTANCE = 50; // Distance entre les points connectés
-     const DOTS_COUNT = screen; // Nombre de points définit par const indice
+     const DOTS_COUNT = screen; // Nombre de points géré par const indice
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1.5; // Épaissir les lignes
      
