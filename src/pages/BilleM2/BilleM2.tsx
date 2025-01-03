@@ -1,8 +1,49 @@
 import React, { useEffect, useRef } from "react";
 import "./BilleM2.css";
+import { useState } from "react";
 
 const BilleM2: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+/*------------------------------------------------------------*/
+ /*Logique de calcul et récupération des dimensions écran*/
+     // État pour les dimensions de l'écran
+         const [dimensions, setDimensions] = useState({
+             width: window.innerWidth,
+             height: window.innerHeight,
+             });
+  
+     // État pour la valeur calculée de "screen"
+         const [screen, setScreen] = useState(() => 
+             (window.innerWidth * window.innerHeight) / 11203);
+
+     // Mettre à jour les dimensions de l'écran lors du redimensionnement
+         useEffect(() => {
+             const handleResize = () => {
+                 setDimensions({
+                     width: window.innerWidth,
+                     height: window.innerHeight,
+                     });
+             };
+
+     window.addEventListener("resize", handleResize);
+
+     // Nettoyage
+         return () => {
+             window.removeEventListener("resize", handleResize);
+         };
+     }, []);
+
+     // Calcule de l'indice de densité de point : 
+         const indice = 100;
+         const density = (1440 * 778 / indice);
+
+     // Recalculer "screen" lorsque les dimensions changent
+         useEffect(() => {
+             setScreen(dimensions.width * dimensions.height / density);
+         }, [dimensions, density]);
+    
+/*------------------------------------------------------------*/
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -24,7 +65,7 @@ const BilleM2: React.FC = () => {
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
      const CONNECTION_DISTANCE = 100; // Distance entre les points connectés
-     const DOTS_COUNT = 100; // Nombre de points
+     const DOTS_COUNT = screen; // Nombre de points définit par const indice
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1; // Épaissir les lignes
      
