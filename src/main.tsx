@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import BilleM7 from './components/BilleM7.tsx'
-import BilleM5 from './components/BilleM5.tsx'
+import BilleM7 from './pages/BilleM7/BilleM7.tsx'
+import BilleM5 from './pages/BilleM5/BilleM5.tsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
