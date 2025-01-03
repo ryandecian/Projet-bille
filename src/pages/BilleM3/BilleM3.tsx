@@ -150,7 +150,7 @@ const BilleM3: React.FC = () => {
 
     init();
     animate();
-  }, []);
+  }, [screen]);
 
   return <canvas ref={canvasRef} className="bille-canvasM3" />;
 };
