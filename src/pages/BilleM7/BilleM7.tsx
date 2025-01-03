@@ -20,14 +20,17 @@ const BilleM7: React.FC = () => {
     canvas.height = window.innerHeight;
 
     const colors = ["rgb(81, 162, 233)", "rgb(255, 77, 90)"];
-    const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
+    const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors)); // Nombre de points
     const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
 
-    const CONNECTION_DISTANCE = 80;
-    const LINE_WIDTH = 1.5;
-    const CURSOR_RADIUS = 200;
-    const MAX_DISTANCE = 300;
-    const MIN_POINT_OPACITY = 0.3;
+    const CONNECTION_DISTANCE = 80; // Distance entre les points connectés
+    const LINE_WIDTH = 1.5; // Épaissir les lignes
+    const CURSOR_RADIUS = 200; // Rayon de transparence lien entre points
+    const MIN_POINT_OPACITY = 0.3; //Opacité des points
+    const MAX_DISTANCE = 300; // Distance d'opacité dynamique
+    /* Les points qui sont plus proches du curseur deviennent plus visibles (avec une opacité*/
+    /* proche de 1), tandis que ceux qui sont au-delà de cette distance (300 pixels ici)*/
+    /* conservent une opacité minimale définie par MIN_POINT_OPACITY.*/
 
     function createDot(canvasWidth: number, canvasHeight: number, colors: string[]) {
       return {

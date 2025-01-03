@@ -10,9 +10,6 @@ function NavPC() {
             <Link to="/billeM5" className="LinkPC">
                  Model 5
             </Link>
-            <Link to="/billeM4" className="LinkPC">
-                 Model 4
-            </Link>
             <Link to="/billeM3" className="LinkPC">
                  Model 3
             </Link>
