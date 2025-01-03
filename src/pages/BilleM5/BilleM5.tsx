@@ -23,10 +23,10 @@ const BilleM5: React.FC = () => {
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
-     const CONNECTION_DISTANCE = 80;
-     const DOTS_COUNT = 300;
-     const LINE_OPACITY = 0.5;
-     const LINE_WIDTH = 1.5;
+     const CONNECTION_DISTANCE = 80; // Distance entre les points connectés
+     const DOTS_COUNT = 300; // Nombre de points
+     const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
+     const LINE_WIDTH = 1.5; // Épaissir les lignes
      
      function createDot(canvasWidth: number, canvasHeight: number, colors: string[]) {
         return {
