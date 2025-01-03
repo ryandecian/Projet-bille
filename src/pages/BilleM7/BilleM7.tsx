@@ -1,8 +1,49 @@
 import React, { useEffect, useRef } from "react";
 import "./BilleM7.css";
+import { useState } from "react";
 
 const BilleM7: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+/*------------------------------------------------------------*/
+ /*Logique de calcul et récupération des dimensions écran*/
+     // État pour les dimensions de l'écran
+     const [dimensions, setDimensions] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      });
+ // Calcule de l'indice de densité de point : 
+   const indice = 300;
+   const density = (1440 * 778 / indice);
+
+ // État pour la valeur calculée de "screen"
+   const [screen, setScreen] = useState(() => 
+     (window.innerWidth * window.innerHeight) / density);
+
+ // Mettre à jour les dimensions de l'écran lors du redimensionnement
+   useEffect(() => {
+     const handleResize = () => {
+       setDimensions({
+         width: window.innerWidth,
+         height: window.innerHeight,
+         });
+     };
+
+ window.addEventListener("resize", handleResize);
+
+ // Nettoyage
+   return () => {
+     window.removeEventListener("resize", handleResize);
+   };
+ }, []);
+
+
+ // Recalculer "screen" lorsque les dimensions changent
+   useEffect(() => {
+     setScreen(dimensions.width * dimensions.height / density);
+   }, [dimensions, density]);
+
+ /*------------------------------------------------------------*/
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -20,7 +61,7 @@ const BilleM7: React.FC = () => {
     canvas.height = window.innerHeight;
 
     const colors = ["rgb(81, 162, 233)", "rgb(255, 77, 90)"];
-    const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors)); // Nombre de points
+    const dots = Array.from({ length: screen }, () => createDot(canvas.width, canvas.height, colors)); // Nombre de points géré par const indice
     const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
 
     const CONNECTION_DISTANCE = 80; // Distance entre les points connectés
@@ -118,8 +159,12 @@ const BilleM7: React.FC = () => {
     }
 
     canvas.addEventListener("mousemove", (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+      const rect = canvas.getBoundingClientRect();
+      const offsetX = 6; // Décalage horizontal en pixels
+      const offsetY = 2;  // Décalage vertical en pixels
+    
+      mouse.x = event.clientX - rect.left + offsetX;
+      mouse.y = event.clientY - rect.top + offsetY;
     });
 
     window.addEventListener("resize", () => {
@@ -129,7 +174,7 @@ const BilleM7: React.FC = () => {
     });
 
     animate();
-  }, []);
+  }, [screen]);
 
   return <canvas ref={canvasRef} className="bille-canvasM7" />;
 };

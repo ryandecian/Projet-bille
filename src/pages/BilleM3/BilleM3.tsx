@@ -1,8 +1,49 @@
 import React, { useEffect, useRef } from "react";
 import "./BilleM3.css";
+import { useState } from "react";
 
 const BilleM3: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+/*------------------------------------------------------------*/
+ /*Logique de calcul et récupération des dimensions écran*/
+     // État pour les dimensions de l'écran
+     const [dimensions, setDimensions] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      });
+ // Calcule de l'indice de densité de point : 
+   const indice = 300;
+   const density = (1440 * 778 / indice);
+
+ // État pour la valeur calculée de "screen"
+   const [screen, setScreen] = useState(() => 
+     (window.innerWidth * window.innerHeight) / density);
+
+ // Mettre à jour les dimensions de l'écran lors du redimensionnement
+   useEffect(() => {
+     const handleResize = () => {
+       setDimensions({
+         width: window.innerWidth,
+         height: window.innerHeight,
+         });
+     };
+
+ window.addEventListener("resize", handleResize);
+
+ // Nettoyage
+   return () => {
+     window.removeEventListener("resize", handleResize);
+   };
+ }, []);
+
+
+ // Recalculer "screen" lorsque les dimensions changent
+   useEffect(() => {
+     setScreen(dimensions.width * dimensions.height / density);
+   }, [dimensions, density]);
+
+ /*------------------------------------------------------------*/
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -24,7 +65,7 @@ const BilleM3: React.FC = () => {
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
      const CONNECTION_DISTANCE = 50; // Distance entre les points connectés
-     const DOTS_COUNT = 300; // Nombre de points
+     const DOTS_COUNT = screen; // Nombre de points géré par const indice
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1.5; // Épaissir les lignes
      
@@ -95,9 +136,13 @@ const BilleM3: React.FC = () => {
         }
       }
 
-    canvas.addEventListener("mousemove", (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+     canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const offsetX = 6; // Décalage horizontal en pixels
+      const offsetY = 2;  // Décalage vertical en pixels
+    
+      mouse.x = event.clientX - rect.left + offsetX;
+      mouse.y = event.clientY - rect.top + offsetY;
     });
 
     window.addEventListener("resize", () => {
@@ -109,7 +154,7 @@ const BilleM3: React.FC = () => {
 
     init();
     animate();
-  }, []);
+  }, [screen]);
 
   return <canvas ref={canvasRef} className="bille-canvasM3" />;
 };
