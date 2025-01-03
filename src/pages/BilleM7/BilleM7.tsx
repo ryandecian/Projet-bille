@@ -159,8 +159,12 @@ const BilleM7: React.FC = () => {
     }
 
     canvas.addEventListener("mousemove", (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+      const rect = canvas.getBoundingClientRect();
+      const offsetX = 6; // Décalage horizontal en pixels
+      const offsetY = 2;  // Décalage vertical en pixels
+    
+      mouse.x = event.clientX - rect.left + offsetX;
+      mouse.y = event.clientY - rect.top + offsetY;
     });
 
     window.addEventListener("resize", () => {
@@ -170,7 +174,7 @@ const BilleM7: React.FC = () => {
     });
 
     animate();
-  }, []);
+  }, [screen]);
 
   return <canvas ref={canvasRef} className="bille-canvasM7" />;
 };
