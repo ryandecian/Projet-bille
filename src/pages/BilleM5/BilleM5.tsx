@@ -12,38 +12,38 @@ const BilleM5: React.FC = () => {
       width: window.innerWidth,
       height: window.innerHeight,
       });
+ // Calcule de l'indice de densité de point : 
+   const indice = 300;
+   const density = (1440 * 778 / indice);
 
-// État pour la valeur calculée de "screen"
-  const [screen, setScreen] = useState(() => 
-      (window.innerWidth * window.innerHeight) / 11203);
+ // État pour la valeur calculée de "screen"
+   const [screen, setScreen] = useState(() => 
+     (window.innerWidth * window.innerHeight) / density);
 
-// Mettre à jour les dimensions de l'écran lors du redimensionnement
-  useEffect(() => {
-      const handleResize = () => {
-          setDimensions({
-              width: window.innerWidth,
-              height: window.innerHeight,
-              });
-      };
+ // Mettre à jour les dimensions de l'écran lors du redimensionnement
+   useEffect(() => {
+     const handleResize = () => {
+       setDimensions({
+         width: window.innerWidth,
+         height: window.innerHeight,
+         });
+     };
 
-window.addEventListener("resize", handleResize);
+ window.addEventListener("resize", handleResize);
 
-// Nettoyage
-  return () => {
-      window.removeEventListener("resize", handleResize);
-  };
-}, []);
+ // Nettoyage
+   return () => {
+     window.removeEventListener("resize", handleResize);
+   };
+ }, []);
 
-// Calcule de l'indice de densité de point : 
-  const indice = 300;
-  const density = (1440 * 778 / indice);
 
-// Recalculer "screen" lorsque les dimensions changent
-  useEffect(() => {
-      setScreen(dimensions.width * dimensions.height / density);
-  }, [dimensions, density]);
+ // Recalculer "screen" lorsque les dimensions changent
+   useEffect(() => {
+     setScreen(dimensions.width * dimensions.height / density);
+   }, [dimensions, density]);
 
-/*------------------------------------------------------------*/
+ /*------------------------------------------------------------*/
 
   useEffect(() => {
     const canvas = canvasRef.current!;
