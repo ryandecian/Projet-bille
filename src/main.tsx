@@ -32,6 +32,10 @@ const router = createBrowserRouter([
       path: "/billeM2",
       element: <BilleM2 />
       },
+      {
+      path: "/billeM22",
+      element: <BilleM22 />
+      },
     ]
   },
 ]);

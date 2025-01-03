@@ -16,6 +16,9 @@ function NavPC() {
             <Link to="/billeM2" className="LinkPC">
                  Model 2
             </Link>
+            <Link to="/billeM22" className="LinkPC">
+                 Model 22
+            </Link>
         </nav>
     )
 }
