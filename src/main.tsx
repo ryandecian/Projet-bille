@@ -3,6 +3,7 @@ import './index.css'
 import App from './App.tsx'
 import BilleM7 from './pages/BilleM7/BilleM7.tsx'
 import BilleM5 from './pages/BilleM5/BilleM5.tsx'
+import BilleM3 from './pages/BilleM3/BilleM3.tsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -23,12 +24,8 @@ const router = createBrowserRouter([
       element: <BilleM5 />
       },
       {
-      path: "/billeM4",
-      element: <BilleM5 />
-      },
-      {
       path: "/billeM3",
-      element: <BilleM5 />
+      element: <BilleM3 />
       },
       {
       path: "/billeM2",

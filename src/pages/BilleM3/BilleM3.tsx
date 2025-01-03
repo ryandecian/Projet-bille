@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import "./BilleM5.css";
+import "./BilleM3.css";
 
-const BilleM5: React.FC = () => {
+const BilleM3: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const BilleM5: React.FC = () => {
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
-     const CONNECTION_DISTANCE = 80; // Distance entre les points connectés
+     const CONNECTION_DISTANCE = 50; // Distance entre les points connectés
      const DOTS_COUNT = 300; // Nombre de points
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1.5; // Épaissir les lignes
@@ -58,37 +58,22 @@ const BilleM5: React.FC = () => {
     }
 
     function connectDots() {
-      for (let i = 0; i < dots.length; i++) {
-        for (let j = i + 1; j < dots.length; j++) {
-          const dx = dots[i].x - dots[j].x;
-          const dy = dots[i].y - dots[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+        for (let i = 0; i < dots.length; i++) {
+            for (let j = i + 1; j < dots.length; j++) {
+                const dx = dots[i].x - dots[j].x;
+                const dy = dots[i].y - dots[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < CONNECTION_DISTANCE) {
-            ctx.beginPath();
-            ctx.moveTo(dots[i].x, dots[i].y);
-            ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
-            ctx.lineWidth = LINE_WIDTH;
-            ctx.stroke();
-          }
+                if (distance < CONNECTION_DISTANCE) {
+                    ctx.beginPath();
+                    ctx.moveTo(dots[i].x, dots[i].y);
+                    ctx.lineTo(dots[j].x, dots[j].y);
+                    ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
+                    ctx.lineWidth = LINE_WIDTH;
+                    ctx.stroke();
+                }
+            }
         }
-
-        if (mouse.x !== null && mouse.y !== null) {
-          const dx = dots[i].x - mouse.x;
-          const dy = dots[i].y - mouse.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < CONNECTION_DISTANCE) {
-            ctx.beginPath();
-            ctx.moveTo(dots[i].x, dots[i].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
-            ctx.lineWidth = LINE_WIDTH;
-            ctx.stroke();
-          }
-        }
-      }
     }
 
     function animate() {
@@ -129,4 +114,4 @@ const BilleM5: React.FC = () => {
   return <canvas ref={canvasRef} className="bille-canvasM5" />;
 };
 
-export default BilleM5;
+export default BilleM3;
