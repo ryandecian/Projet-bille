@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const BilleM22: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-/*Logique de calcul et récupération des dimensions écran*/
+/*------------------------------------------------------------*/
+ /*Logique de calcul et récupération des dimensions écran*/
      // État pour les dimensions de l'écran
          const [dimensions, setDimensions] = useState({
              width: window.innerWidth,
@@ -33,10 +33,14 @@ const BilleM22: React.FC = () => {
          };
      }, []);
 
+     // Calcule de l'indice de densité de point : 
+         const indice = 100;
+         const density = (1440 * 778 / indice);
+
      // Recalculer "screen" lorsque les dimensions changent
          useEffect(() => {
-             setScreen(dimensions.width * dimensions.height / 11203);
-         }, [dimensions]);
+             setScreen(dimensions.width * dimensions.height / density);
+         }, [dimensions, density]);
     
 /*------------------------------------------------------------*/
 
@@ -59,8 +63,8 @@ const BilleM22: React.FC = () => {
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
+     const DOTS_COUNT = screen; // Nombre de points définit par const indice
      const CONNECTION_DISTANCE = 100; // Distance entre les points connectés
-     const DOTS_COUNT = screen; // Nombre de points
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
      const LINE_WIDTH = 1; // Épaissir les lignes
      
