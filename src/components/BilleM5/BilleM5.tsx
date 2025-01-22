@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import "./BilleM2.css";
+import { useEffect, useRef } from "react";
+import "./BilleM5.css";
 import { useState } from "react";
 
-const BilleM2: React.FC = () => {
+function BilleM5() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
 /*------------------------------------------------------------*/
@@ -13,7 +13,7 @@ const BilleM2: React.FC = () => {
       height: window.innerHeight,
       });
  // Calcule de l'indice de densité de point : 
-   const indice = 100;
+   const indice = 300;
    const density = (1440 * 778 / indice);
 
  // État pour la valeur calculée de "screen"
@@ -54,7 +54,7 @@ const BilleM2: React.FC = () => {
         return;
     }
     
-    const ctx = context; // Utilisation d'une variable locale pour le contexte.
+    const ctx = context; // Utilisation d'une variable locale pour le contexte
 
      // Initialisation des dimensions du canvas
      canvas.width = window.innerWidth;
@@ -64,10 +64,10 @@ const BilleM2: React.FC = () => {
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
-     const CONNECTION_DISTANCE = 100; // Distance entre les points connectés
+     const CONNECTION_DISTANCE = 80; // Distance entre les points connectés
      const DOTS_COUNT = screen; // Nombre de points géré par const indice
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
-     const LINE_WIDTH = 1; // Épaissir les lignes
+     const LINE_WIDTH = 1.5; // Épaissir les lignes
      
      function createDot(canvasWidth: number, canvasHeight: number, colors: string[]) {
         return {
@@ -99,22 +99,37 @@ const BilleM2: React.FC = () => {
     }
 
     function connectDots() {
-        for (let i = 0; i < dots.length; i++) {
-            for (let j = i + 1; j < dots.length; j++) {
-                const dx = dots[i].x - dots[j].x;
-                const dy = dots[i].y - dots[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < CONNECTION_DISTANCE) {
-                    ctx.beginPath();
-                    ctx.moveTo(dots[i].x, dots[i].y);
-                    ctx.lineTo(dots[j].x, dots[j].y);
-                    ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
-                    ctx.lineWidth = LINE_WIDTH;
-                    ctx.stroke();
-                }
-            }
+          if (distance < CONNECTION_DISTANCE) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
+            ctx.lineWidth = LINE_WIDTH;
+            ctx.stroke();
+          }
         }
+
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = dots[i].x - mouse.x;
+          const dy = dots[i].y - mouse.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < CONNECTION_DISTANCE) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(81, 162, 233, ${LINE_OPACITY})`;
+            ctx.lineWidth = LINE_WIDTH;
+            ctx.stroke();
+          }
+        }
+      }
     }
 
     function animate() {
@@ -136,14 +151,14 @@ const BilleM2: React.FC = () => {
         }
       }
 
-     canvas.addEventListener("mousemove", (event) => {
-      const rect = canvas.getBoundingClientRect();
-      const offsetX = 6; // Décalage horizontal en pixels
-      const offsetY = 2;  // Décalage vertical en pixels
-    
-      mouse.x = event.clientX - rect.left + offsetX;
-      mouse.y = event.clientY - rect.top + offsetY;
-    });
+      canvas.addEventListener("mousemove", (event) => {
+        const rect = canvas.getBoundingClientRect();
+        const offsetX = 6; // Décalage horizontal en pixels
+        const offsetY = 2;  // Décalage vertical en pixels
+      
+        mouse.x = event.clientX - rect.left + offsetX;
+        mouse.y = event.clientY - rect.top + offsetY;
+      });
 
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
@@ -156,7 +171,7 @@ const BilleM2: React.FC = () => {
     animate();
   }, [screen]);
 
-  return <canvas ref={canvasRef} className="bille-canvasM2" />;
+  return <canvas ref={canvasRef} className="bille-canvasM5" />;
 };
 
-export default BilleM2;
+export default BilleM5;

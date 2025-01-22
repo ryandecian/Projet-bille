@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import "./BilleM3.css";
+import { useEffect, useRef } from "react";
+import "./BilleM2.css";
 import { useState } from "react";
 
-const BilleM3: React.FC = () => {
+function BilleM2() {
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
 /*------------------------------------------------------------*/
@@ -13,7 +14,7 @@ const BilleM3: React.FC = () => {
       height: window.innerHeight,
       });
  // Calcule de l'indice de densité de point : 
-   const indice = 300;
+   const indice = 100;
    const density = (1440 * 778 / indice);
 
  // État pour la valeur calculée de "screen"
@@ -54,7 +55,7 @@ const BilleM3: React.FC = () => {
         return;
     }
     
-    const ctx = context; // Utilisation d'une variable locale pour le contexte
+    const ctx = context; // Utilisation d'une variable locale pour le contexte.
 
      // Initialisation des dimensions du canvas
      canvas.width = window.innerWidth;
@@ -64,10 +65,10 @@ const BilleM3: React.FC = () => {
      const dots = Array.from({ length: 300 }, () => createDot(canvas.width, canvas.height, colors));
      const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
  
-     const CONNECTION_DISTANCE = 50; // Distance entre les points connectés
+     const CONNECTION_DISTANCE = 100; // Distance entre les points connectés
      const DOTS_COUNT = screen; // Nombre de points géré par const indice
      const LINE_OPACITY = 0.5; // Augmenter la visibilité des lignes
-     const LINE_WIDTH = 1.5; // Épaissir les lignes
+     const LINE_WIDTH = 1; // Épaissir les lignes
      
      function createDot(canvasWidth: number, canvasHeight: number, colors: string[]) {
         return {
@@ -156,7 +157,7 @@ const BilleM3: React.FC = () => {
     animate();
   }, [screen]);
 
-  return <canvas ref={canvasRef} className="bille-canvasM3" />;
+  return <canvas ref={canvasRef} className="bille-canvasM2" />;
 };
 
-export default BilleM3;
+export default BilleM2;

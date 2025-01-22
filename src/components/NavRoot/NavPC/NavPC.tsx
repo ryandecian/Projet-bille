@@ -5,7 +5,7 @@ function NavPC() {
 
     return (
         <nav className="NavPC">
-            <Link to="/billeM7" className="LinkPC">
+            <Link to="/" className="LinkPC">
                  Model 7
             </Link>
             <Link to="/billeM5" className="LinkPC">
