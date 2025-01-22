@@ -156,7 +156,7 @@ const BilleM2: React.FC = () => {
     animate();
   }, [screen]);
 
-  return <canvas ref={canvasRef} className="bille-canvasM3" />;
+  return <canvas ref={canvasRef} className="bille-canvasM2" />;
 };
 
 export default BilleM2;
