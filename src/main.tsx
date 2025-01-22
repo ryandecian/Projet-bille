@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 import App from './App.tsx'
 import BilleM7 from './pages/BilleM7/BilleM7.tsx'
@@ -14,10 +15,6 @@ const router = createBrowserRouter([
     children: [
       {
       path: "/",
-      element: <BilleM7 />
-      },
-      {
-      path: "/billeM7",
       element: <BilleM7 />
       },
       {
@@ -37,5 +34,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')!).render(
-    <RouterProvider router={router} />
+   <HelmetProvider>
+     <RouterProvider router={router} />
+   </HelmetProvider>
 )
