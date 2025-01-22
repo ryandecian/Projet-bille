@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./BilleM3.css";
 import { useState } from "react";
 
-const BilleM3: React.FC = () => {
+function BilleM3() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
 /*------------------------------------------------------------*/
