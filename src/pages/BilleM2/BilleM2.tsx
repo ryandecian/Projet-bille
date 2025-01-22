@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./BilleM2.css";
 import { useState } from "react";
 
 function BilleM2() {
-  
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
 /*------------------------------------------------------------*/
