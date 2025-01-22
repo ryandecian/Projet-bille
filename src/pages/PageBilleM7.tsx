@@ -8,25 +8,25 @@ function PageBilleM7() {
      title: "Portfolio - Ryan DECIAN - Développeur Web Full Stack",
      autor: "Ryan DECIAN",
      description: "",
-     url: "https://portfolio-ryan-decian.netlify.app", /*URL de la page*/
+     url: "https://projet-bille.netlify.app/", /*URL de la page*/
      img: "",
      twitterUrlImg: "", /*Lien URL de l'image*/
      twitterCompte: "", /*@MonCompteTwitter*/ /*Permet d'identifier le compte officiel*/
      keywords: {
        1: "Ryan DECIAN", /* 1 mot clés */
-       2: "Portfolio Ryan DECIAN", /* 2 mots clés */
+       2: "Page BilleM7", /* 2 mots clés */
        3: "Développeur Web Full Stack", /* 3 mots clés */
-       4: "Développeur Web Juvignac", /* 4 mots clés */
-       5: "Développeur Web Grabels", /* 5 mots clés */
-       6: "Développeur Web Montpellier", /* 6 mots clés */
-       7: "Développeur Web Hérault", /* 7 mots clés */
-       8: "Création de site web", /* 8 mots clés */
-       9: "Créateur de site Web", /* 9 mots clés */
-       10: "Créateur de site Web sur Montpellier", /* 10 mots clés */
-       11: "Créateur de site Web sur Juvignac", /* 11 mots clés */
-       12: "Créateur de site Web sur Grabels", /* 12 mots clés */
-       13: "Créateur de site Web dans l'Hérault", /* 13 mots clés */
-       14: "Dev Web", /* 14 mots clés */
+       4: "", /* 4 mots clés */
+       5: "", /* 5 mots clés */
+       6: "", /* 6 mots clés */
+       7: "", /* 7 mots clés */
+       8: "", /* 8 mots clés */
+       9: "", /* 9 mots clés */
+       10: "", /* 10 mots clés */
+       11: "", /* 11 mots clés */
+       12: "", /* 12 mots clés */
+       13: "", /* 13 mots clés */
+       14: "", /* 14 mots clés */
        15: "", /* 15 mots clés */
      }, /* 10 a 15 mots max */
      type : {
