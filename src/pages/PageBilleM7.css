@@ -1,0 +1,9 @@
+.headerBilleM7 {
+    width: 100%;
+}
+
+.mainBilleM7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

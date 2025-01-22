@@ -1,0 +1,9 @@
+.headerBilleM3 {
+    width: 100%;
+}
+
+.mainBilleM3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
