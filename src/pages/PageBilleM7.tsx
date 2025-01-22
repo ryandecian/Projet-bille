@@ -1,7 +1,8 @@
+import "./PageBilleM7.css"
 import NavRoot from "../components/NavRoot/NavRoot";
 import BilleM7 from "../components/BilleM7/BilleM7";
 
-function BilleM7Page() {
+function PageBilleM7() {
   return (
     <>
          <header className="headerBilleM7">
@@ -17,4 +18,4 @@ function BilleM7Page() {
   );
 }
 
-export default BilleM7Page;
+export default PageBilleM7;

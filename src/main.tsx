@@ -6,10 +6,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 
 /* Importation des pages */
-import BilleM7Page from "./pages/BilleM7Page.tsx"
-import BilleM5Page from "./pages/BilleM5Page.tsx"
-import BilleM3Page from "./pages/BilleM3Page.tsx"
-import BilleM2Page from "./pages/BilleM2Page.tsx"
+import PageBilleM7 from "./pages/PageBilleM7.tsx"
+import PageBilleM5 from "./pages/PageBilleM5.tsx"
+import PageBilleM3 from "./pages/PageBilleM3.tsx"
+import PageBilleM2 from "./pages/PageBilleM2.tsx"
 
 const router = createBrowserRouter([
   {
@@ -17,19 +17,19 @@ const router = createBrowserRouter([
     children: [
       {
       path: "/",
-      element: <BilleM7Page />
+      element: <PageBilleM7 />
       },
       {
       path: "/billeM5",
-      element: <BilleM5Page />
+      element: <PageBilleM5 />
       },
       {
       path: "/billeM3",
-      element: <BilleM3Page />
+      element: <PageBilleM3 />
       },
       {
       path: "/billeM2",
-      element: <BilleM2Page />
+      element: <PageBilleM2 />
       },
     ]
   },
