@@ -8,15 +8,15 @@ function PageBilleM5() {
         title: "Portfolio - Ryan DECIAN - Développeur Web Full Stack",
         autor: "Ryan DECIAN",
         description: "",
-        url: "https://projet-bille.netlify.app/", /*URL de la page*/
+        url: "https://projet-bille.netlify.app/billeM5", /*URL de la page*/
         img: "",
         twitterUrlImg: "", /*Lien URL de l'image*/
         twitterCompte: "", /*@MonCompteTwitter*/ /*Permet d'identifier le compte officiel*/
         keywords: {
           1: "Ryan DECIAN", /* 1 mot clés */
-          2: "Page BilleM7", /* 2 mots clés */
+          2: "Page BilleM5", /* 2 mots clés */
           3: "Développeur Web Full Stack", /* 3 mots clés */
-          4: "", /* 4 mots clés */
+          4: "Demo web - BilleM5", /* 4 mots clés */
           5: "", /* 5 mots clés */
           6: "", /* 6 mots clés */
           7: "", /* 7 mots clés */
