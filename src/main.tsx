@@ -2,12 +2,14 @@ import { createRoot } from "react-dom/client"
 import { HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import App from "./App.tsx"
-import BilleM7 from "./components/BilleM7/BilleM7.tsx"
-import BilleM5 from "./components/BilleM5/BilleM5.tsx"
-import BilleM3 from "./components/BilleM3/BilleM3.tsx"
-import BilleM2 from "./components/BilleM2/BilleM2.tsx"
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+
+/* Importation des pages */
+import BilleM7Page from "./pages/BilleM7Page.tsx"
+import BilleM5Page from "./pages/BilleM5Page.tsx"
+import BilleM3Page from "./pages/BilleM3Page.tsx"
+import BilleM2Page from "./pages/BilleM2Page.tsx"
 
 const router = createBrowserRouter([
   {
@@ -15,19 +17,19 @@ const router = createBrowserRouter([
     children: [
       {
       path: "/",
-      element: <BilleM7 />
+      element: <BilleM7Page />
       },
       {
       path: "/billeM5",
-      element: <BilleM5 />
+      element: <BilleM5Page />
       },
       {
       path: "/billeM3",
-      element: <BilleM3 />
+      element: <BilleM3Page />
       },
       {
       path: "/billeM2",
-      element: <BilleM2 />
+      element: <BilleM2Page />
       },
     ]
   },
