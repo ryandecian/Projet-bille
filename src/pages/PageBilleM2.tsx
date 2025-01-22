@@ -1,22 +1,22 @@
-import "./PageBilleM3.css"
+import "./PageBilleM2.css"
 import NavRoot from "../components/NavRoot/NavRoot";
-import BilleM3 from "../components/BilleM3/BilleM3";
+import BilleM2 from "../components/BilleM2/BilleM2";
 import { Helmet } from "react-helmet-async";
 
-function PageBilleM3() {
+function PageBilleM2() {
     const SEO = {
         title: "Portfolio - Ryan DECIAN - Développeur Web Full Stack",
         autor: "Ryan DECIAN",
         description: "",
-        url: "https://projet-bille.netlify.app/billeM3", /*URL de la page*/
+        url: "https://projet-bille.netlify.app/billeM2", /*URL de la page*/
         img: "",
         twitterUrlImg: "", /*Lien URL de l'image*/
         twitterCompte: "", /*@MonCompteTwitter*/ /*Permet d'identifier le compte officiel*/
         keywords: {
           1: "Ryan DECIAN", /* 1 mot clés */
-          2: "Page BilleM3", /* 2 mots clés */
+          2: "Page BilleM2", /* 2 mots clés */
           3: "Développeur Web Full Stack", /* 3 mots clés */
-          4: "Demo web - BilleM3", /* 4 mots clés */
+          4: "Demo web - BilleM2", /* 4 mots clés */
           5: "", /* 5 mots clés */
           6: "", /* 6 mots clés */
           7: "", /* 7 mots clés */
@@ -74,17 +74,17 @@ function PageBilleM3() {
         <link rel="canonical" href={SEO.url} />
       </Helmet>
 
-      <header className="headerBilleM3">
+      <header className="headerBilleM2">
         <NavRoot />
       </header>
 
-      <main className="mainBilleM3">
-        <BilleM3 />
+      <main className="mainBilleM2">
+        <BilleM2 />
       </main>
 
-      <footer className="footerBilleM3"/>
+      <footer className="footerBilleM2"/>
     </>
   );
 }
 
-export default PageBilleM3;
+export default PageBilleM2;
